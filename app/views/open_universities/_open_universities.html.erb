@@ -1,0 +1,32 @@
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %>
+<table class="table table-responsive table-striped table-bordered table-condensed table-hover">
+	<thead>
+		<tr>
+			<th><%= sortable "course" %></th>
+			<th><%= sortable "code" %></th>
+			<th><%= sortable "year" %></th>
+			<th colspan="3"></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @open_universities.each do |open_university| %>
+		<tr>
+			<td><%= open_university.course %></td>
+			<td><%= open_university.code %></td>
+			<td><%= open_university.year %></td>
+			<% if admin_signed_in? %>
+			<td><%= link_to 'Show', open_university %></td>
+			<td><%= link_to 'Edit', edit_open_university_path(open_university) %></td>
+			<td><%= link_to 'Destroy', open_university, method: :delete, data: { confirm: 'Are you sure?' } %></td> <% end %>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+<div class="flickr_pagination">
+    <div class="page_info">
+      <%= page_entries_info @posts %>
+    </div>
+    <%= will_paginate @open_universities, :container => false %>
+  </div>
+

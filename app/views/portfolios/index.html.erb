@@ -1,0 +1,38 @@
+<p id="notice">
+	<%= notice %>
+</p>
+<% provide(:title, 'Portfolio') %>
+
+<% @portfolios.each do |portfolio| %>
+<div class="panel panel-default">
+	<div class="panel-body">
+
+		<h3><%= portfolio.title %></h3>
+		<p>
+			Type of project:
+			<%= portfolio.type_of_project %>
+		</p>
+		<p>
+			<%= portfolio.description %>
+		</p>
+		<%= content_tag :p do -%>
+		<a href="<%= portfolio.link %>"> <%= portfolio.link %></a>
+		<% end if portfolio.link? -%>
+
+		<p>
+			<%= image_tag portfolio.image_url(:thumb) if portfolio.image? %>
+		</p>
+		<% if admin_signed_in? %>
+		<%= link_to 'Edit', edit_portfolio_path(portfolio) %> |
+		<%= link_to 'Destroy', portfolio, method: :delete, data: { confirm: 'Are you sure?' } %><% end %>
+		</p>
+	</div>
+</div>
+<% end %>
+
+<br>
+<% if admin_signed_in? %>
+<%= link_to new_portfolio_path, class: 'btn btn-success' do %>
+<i class="glyphicon glyphicon-plus"></i> New portfolio
+<% end %>
+<% end %>

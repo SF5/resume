@@ -1,0 +1,26 @@
+<h1>Open University Courses</h1>
+<%= search_form_for @search, class: "form-inline", url: search_open_universities_path,  html: { method: :post } do |f| %>
+<%= f.condition_fields do |c| %>
+<% render  "condition_fields", f: c %>
+<% end %>
+<p>
+	<%= link_to_add_fields "Add search Conditions", f, :condition %>
+</p>
+<!-- <div class="field">
+	Sort:
+	<%= f.sort_fields do |s| %>
+	<%= s.sort_select %>
+	<% end %>
+</div> -->
+<div class="actions">
+	<%= f.submit "Search", class: "btn btn-success", remote: true %> <span>&nbsp;</span>
+	<%= link_to "Clear Search", search_open_universities_path, class: "btn btn-warning" %>
+</div>
+<% end %>
+<div id=="open_universities"><%= render 'open_universities' %></div>
+<br>
+<% if admin_signed_in? %>
+<%= link_to new_open_university_path, class: 'btn btn-success' do %>
+<i class="glyphicon glyphicon-plus"></i> New Course at the Open University'
+<% end %>
+<% end %>

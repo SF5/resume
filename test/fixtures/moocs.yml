@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  institute: MyString
+  title: MyString
+  course: MyText
+  year: MyText
+  verified: false
+  : 
+  =: MyString
+
+two:
+  institute: MyString
+  title: MyString
+  course: MyText
+  year: MyText
+  verified: false
+  : 
+  =: MyString

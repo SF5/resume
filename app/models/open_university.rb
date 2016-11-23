@@ -1,0 +1,2 @@
+class OpenUniversity < ApplicationRecord
+end

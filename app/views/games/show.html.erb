@@ -1,0 +1,29 @@
+<p>
+  <strong>Title:</strong>
+  <%= @game.title %>
+</p>
+
+<p>
+  <strong>Created at:</strong>
+  <%= @game.created_at %>
+</p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @game.subject %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @game.content %>
+</p>
+
+
+
+<p>
+ <a href="<%= @game.link %>"><%= image_tag @game.image_url(:thumb) if @game.image? %></a>
+</p>
+
+
+<%= link_to 'Edit', edit_game_path(@game) %> |
+<%= link_to 'Back', games_path %>

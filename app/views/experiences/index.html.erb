@@ -1,0 +1,45 @@
+<h1>Work Experience</h1>
+
+<% provide(:title, 'Work Experience') %>
+<% @experiences = Experience.order("year Desc")%>
+<!-- .limit(4)  -->
+<% @experiences.each do |experience| %>
+<div class="panel panel-success">
+	<div class="panel-heading">
+		<h3 class = "panel-title"> <%= experience.year %></h3>
+	</div>
+	<div class="panel-body">
+
+		<div class="panel-title">
+			Type of Job:
+		</div>
+		<p>
+			<%= experience.type_of_job %>
+		</p>
+
+		<div class="panel-title">
+			Description of work done:</div>
+			<p>
+				<%= experience.description %>
+			</p>
+
+			<div class="panel-title">
+				Employer / employment agency:	</div>
+				<p>
+					<%= experience.employer %>
+				</p>
+		
+
+			<% if admin_signed_in? %>
+			<%= link_to 'Edit', edit_experience_path(experience) %>
+			<%= link_to 'Destroy', experience, method: :delete, data: { confirm: 'Are you sure?' } %>
+			<% end %>
+		</div>
+		</div>
+		<% end %>
+
+		<% if admin_signed_in? %>
+		<%= link_to new_experience_path, class: 'btn btn-success' do %>
+		<i class="glyphicon glyphicon-plus"></i> New Work Experience
+		<% end %><% end %>
+

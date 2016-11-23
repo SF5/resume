@@ -1,0 +1,1 @@
+json.partial! "open_universities/open_university", open_university: @open_university

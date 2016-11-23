@@ -1,0 +1,2 @@
+class Mooc < ApplicationRecord
+end

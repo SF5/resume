@@ -1,0 +1,29 @@
+<p id="notice">
+	<%= notice %>
+</p>
+
+<p>
+	<strong>Title:</strong>
+	<%= @portfolio.title %>
+</p>
+
+<p>
+	<strong>Type:</strong>
+	<%= @portfolio.type_of_project %>
+</p>
+
+<p>
+	<strong>Description:</strong>
+	<%= @portfolio.description %>
+</p>
+<%= content_tag :p do -%>
+<strong>Link:</strong>
+<a href="<%= @portfolio.link %>"> <%= @portfolio.link %></a>
+<% end if @portfolio.link? -%>
+<p>
+
+	<%= image_tag @portfolio.image_url(:thumb) if @portfolio.image? %>
+</p>
+
+<%= link_to 'Edit', edit_portfolio_path(@portfolio) %> |
+<%= link_to 'Back', portfolios_path %>

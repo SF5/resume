@@ -1,0 +1,53 @@
+<%= form_for @game, :html => {:multipart => true} do |f| %>
+<% if game.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(game.errors.count, "error") %> prohibited this game from being saved:</h2>
+
+	<ul>
+		<% game.errors.full_messages.each do |message| %>
+		<li>
+			<%= message %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+
+<div class="field">
+	<%= f.label :title %>
+	<%= f.text_field :title %>
+</div>
+
+<div class="field">
+	<%= f.label :created_at %>
+	<%= f.date_select :created_at %>
+</div>
+
+<div class="field">
+	<%= f.label :subject %>
+	<%= f.text_field :subject %>
+</div>
+
+<div class="field">
+	<%= f.label :content %>
+	<%= f.text_area :content %>
+</div>
+<div class="field">
+	<%= f.label :image %>
+	<br>
+	<%= f.file_field :image %>
+	<% if f.object.image? %>
+	<%= image_tag f.object.image.url %>
+	<%= f.label :remove_image %>
+	<%= f.check_box :remove_image %>
+	<% end %>
+</div>
+<div class="field">
+	<%= f.label :link %>
+	<%= f.text_area :link %>
+</div>
+
+<div class="actions">
+	<%= f.submit %>
+</div>
+<% end %>

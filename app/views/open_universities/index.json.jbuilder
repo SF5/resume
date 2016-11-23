@@ -1,0 +1,1 @@
+json.array! @open_universities, partial: 'open_universities/open_university', as: :open_university

@@ -1,0 +1,17 @@
+<p>
+  <strong>Courses:</strong>
+  <%= @study.course %>
+</p>
+
+<p>
+  <strong>Years:</strong>
+  <%= @study.years %>
+</p>
+
+<p>
+  <strong>Institute:</strong>
+  <%= @study.institute %>
+</p>
+
+<%= link_to 'Edit', edit_study_path(@study) %> |
+<%= link_to 'Back', studies_path %>

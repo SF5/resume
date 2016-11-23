@@ -1,0 +1,17 @@
+<p>
+  <strong>Course:</strong>
+  <%= @open_university.course %>
+</p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @open_university.code %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @open_university.year %>
+</p>
+
+<%= link_to 'Edit', edit_open_university_path(@open_university) %> |
+<%= link_to 'Back', open_universities_path %>

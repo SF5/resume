@@ -1,0 +1,32 @@
+<%= form_for(open_university) do |f| %>
+  <% if open_university.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(open_university.errors.count, "error") %> prohibited this open_university from being saved:</h2>
+
+      <ul>
+      <% open_university.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :course %>
+    <%= f.text_area :course, autofocus:true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :code %>
+    <%= f.text_field :code %>
+  </div>
+
+  <div class="field">
+    <%= f.label :year %>
+    <%= f.text_field :year %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

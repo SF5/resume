@@ -1,0 +1,37 @@
+<h1>Moocs</h1>
+
+<table class="table table-responsive">
+  <thead>
+    <tr>
+      <th>Institute</th>
+      <th>Course</th>
+      <th>Year</th>
+      <th>Verified</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @moocs.each do |mooc| %>
+      <tr>
+        <td><%= mooc.institute %></td>
+        <td><%= mooc.course %></td>
+        <td><%= mooc.year %></td>
+        <td><%= mooc.verified %></td>
+        <td><%= link_to 'Show', mooc %></td>
+        <% if admin_signed_in? %>
+        <td><%= link_to 'Edit', edit_mooc_path(mooc) %></td>
+        <td><%= link_to 'Destroy', mooc, method: :delete, data: { confirm: 'Are you sure?' } %></td><% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<br>
+<% if admin_signed_in? %>
+<%= link_to new_mooc_path, class: 'btn btn-success' do %>
+<i class="glyphicon glyphicon-plus"></i> New Mooc
+<% end %>
+<% end %>

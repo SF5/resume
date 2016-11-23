@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title><%= yield(:title) %></title>
+		<%= csrf_meta_tags %>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+		<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+		<% if controller_name == "application" && action_name == "about" %>
+		<%= stylesheet_link_tag "cards" %>
+		<% end %>
+	</head>
+	<body>
+		<%= render partial: "shared/navbar" %>
+		<div id="main-container" class="container">
+			<% flash.each do |name, msg| %>
+			<%= content_tag :div, msg, class: "alert alert-info" %>
+			<% end %>
+
+			<div class="row">
+				<div class="col=xs-3">
+					<h3>Curriculum Vitae of Sheila Francl</h3>
+				</div>
+				<div class="col-xs-12">
+					<%= yield %>
+				</div>
+			</div>	<p class="pull-right">
+				Sheila Francl Curriculum Vitae 2016
+			</p>
+		</div>
+
+	</body>
+</html>

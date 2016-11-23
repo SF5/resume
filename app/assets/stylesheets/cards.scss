@@ -1,0 +1,68 @@
+
+@mixin breakpoint($point) {
+   @if $point == xsmall {
+     @media only screen and (max-width: 320px) { @content; }
+   }
+ @if $point == xlarge {
+    @media only screen and (min-width: 1200px) { @content; }
+  }
+}
+
+.card-columns {
+  @include breakpoint(xsmall) {
+   column-count: 2;
+      -moz-column-count: 2;
+     -webkit-column-count: 2;
+ }
+  @include breakpoint(xlarge) {
+    column-count: 3;
+      -moz-column-count: 3;
+     -webkit-column-count: 2;
+  }
+
+}
+
+.card {
+    display: inline-block;
+    background: #fff;
+    padding: 1em;
+    margin: 0 0 1.5em;
+    min-width: 250px;
+    width: 100;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+     /* box-shadow: 2px 2px 4px 0 #ccc;*/
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    
+    
+/* On mouse-over, add a deeper shadow */
+    &:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+    .card-header {
+    padding: .75rem 1.25rem;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 16px;
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+}
+
+}
+
+
+/* Add rounded corners to the top left and the top right corner of the image */
+img {
+    border-radius: 5px 5px 0 0;
+}
+
+.h4, h4 {
+    font-size: 1.5rem;
+}
+.h3, h3 {
+    font-size: 1.75rem;
+}

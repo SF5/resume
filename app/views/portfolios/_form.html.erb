@@ -1,0 +1,47 @@
+<%= form_for(portfolio) do |f| %>
+  <% if portfolio.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(portfolio.errors.count, "error") %> prohibited this portfolio from being saved:</h2>
+
+      <ul>
+      <% portfolio.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :type_of_project %>
+    <%= f.text_field :type_of_project %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :link %>
+    <%= f.text_area :link %>
+  </div>
+
+<div class="field">
+	<%= f.label :image %>
+	<br>
+	<%= f.file_field :image %>
+	<% if f.object.image? %>
+	<%= image_tag f.object.image.url %>
+	<%= f.label :remove_image %>
+	<%= f.check_box :remove_image %>
+	<% end %>
+</div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

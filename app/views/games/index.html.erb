@@ -1,0 +1,36 @@
+<h1>Games</h1>
+
+<% provide(:title, 'Game') %>
+
+<% @games.each do |game| %>
+<div class="panel panel-default">
+	<div class="panel-body">
+
+		<h3><%= game.title %></h3>
+		<p>
+			Type of game:
+			<%= game.subject %>
+		</p>
+		<p>
+			<%= game.content %>
+		<p>
+
+		<p>
+			<a href="<%= game.link %>"><%= image_tag game.image_url(:thumb) if game.image? %></a>
+		</p>
+	<% if admin_signed_in? %>
+		<%= link_to 'Edit', edit_game_path(game) %> |
+		<%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %><% end %>
+		</p>
+	</div>
+</div>
+<% end %>
+
+
+
+<br>
+<% if admin_signed_in? %>
+<%= link_to new_game_path, class: 'btn btn-success' do %>
+<i class="glyphicon glyphicon-plus"></i> New game
+<% end %>
+<% end %>
