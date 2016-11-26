@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :open_universities  do
     #collection { post :search, to: 'open_universities#index' }
     collection do
-      match 'search' => 'open_universities#index', :via => [:get, :post], :as => :search
+      get 'search' => 'open_universities#index', :via => [:get, :post], :as => :search
       #get ipv match
     end
   end
