@@ -6,13 +6,12 @@ This README would normally document whatever steps are necessary to get the appl
 Things you may want to cover:
 
     Ruby version
-
-    System dependencies
-
+2.2.5
+   System dependencies
     Configuration
 
     Database creation
-
+sqlite3
     Database initialization
 
     How to run the test suite
